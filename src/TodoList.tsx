@@ -40,7 +40,7 @@ const TodoList: React.FC<TodoListProps> = ({ todos, onDeleteTodo }) => {
         <Grid item xs={12} md={12} lg={4} key={todo.id}>
           {/* Adjust columns based on your layout */}
           <ListItem>
-            <ListItemText primary={todo.text} />
+            <ListItemText primary={todo.title} />
           </ListItem>
           <ListItem>
             <Button

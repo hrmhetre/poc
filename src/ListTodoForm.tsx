@@ -1,8 +1,7 @@
 import React from "react";
 import { Todo } from "./App";
-import TodoList from "./TodoList";
 import { Button, List, ListItem, ListItemText } from "@mui/material";
-import UpdateTodoForm from "./UpdateTodoForm";
+import { Link } from "react-router-dom";
 
 interface ListTodoFormProps {
   todos: Todo[];
@@ -14,10 +13,13 @@ const ListTodoForm: React.FC<ListTodoFormProps> = ({ todos }) => {
       <List>
         {todos.map((todo) => (
           <ListItem key={todo.id}>
-            <ListItemText primary={todo.text} />
+            <ListItemText primary={todo.title} />
           </ListItem>
         ))}
       </List>
+      <Button variant="contained" color="primary">
+        <Link to="/list/update">Update Todos</Link>
+      </Button>
     </div>
   );
 };

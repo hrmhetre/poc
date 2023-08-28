@@ -1,33 +1,51 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import AddTodoForm from "./AddTodoForm";
 import TodoList from "./TodoList";
 import ShowTodoForm from "./ShowTodoForm";
 import ListTodoForm from "./ListTodoForm";
+import axios from "axios";
 
 export interface Todo {
   id: number;
-  text: string;
+  title: string;
 }
 
 const App: React.FC = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
 
-  const handleAddTodo = (text: string) => {
-    const newTodo: Todo = { id: Date.now(), text };
+  useEffect(() => {
+    fetchTodos();
+  }, []);
+
+  const fetchTodos = async () => {
+    try {
+      const response = await axios.get(
+        "https://jsonplaceholder.typicode.com/todos"
+      );
+      setTodos(response.data);
+    } catch (error) {
+      console.error("Error fetching todos:", error);
+    }
+  };
+
+  const handleAddTodo = async (title: string) => {
+    const newTodo: Todo = { id: Date.now(), title };
     setTodos([...todos, newTodo]);
   };
 
-  const handleDeleteTodo = (id: number) => {
+  const handleDeleteTodo = async (id: number) => {
     const updatedTodos = todos.filter((todo) => todo.id !== id);
     setTodos(updatedTodos);
   };
-  const handleUpdateTodo = (id: number, newText: string) => {
+
+  const handleUpdateTodo = async (id: number, newTitle: string) => {
     const updatedTodos = todos.map((todo) =>
-      todo.id === id ? { ...todo, text: newText } : todo
+      todo.id === id ? { ...todo, title: newTitle } : todo
     );
     setTodos(updatedTodos);
   };
+
   return (
     <Router>
       <div>

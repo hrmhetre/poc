@@ -12,7 +12,7 @@ const UpdateTodoForm: React.FC<UpdateTodoFormProps> = ({
   todo,
   onUpdateTodo,
 }) => {
-  const [text, setText] = useState(todo.text);
+  const [text, setText] = useState(todo.title);
 
   const handleUpdate = () => {
     onUpdateTodo(todo.id, text);

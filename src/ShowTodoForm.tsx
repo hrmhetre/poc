@@ -27,7 +27,7 @@ const ShowTodoForm: React.FC<ShowTodoFormProps> = ({ todos, onUpdateTodo }) => {
           <Grid item xs={12} md={6} lg={4} key={todo.id}>
             {/* Adjust columns based on your layout */}
             <ListItem>
-              <ListItemText primary={todo.text} />
+              <ListItemText primary={todo.title} />
             </ListItem>
             <ListItem>
               <UpdateTodoForm todo={todo} onUpdateTodo={onUpdateTodo} />

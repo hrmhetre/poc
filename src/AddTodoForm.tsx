@@ -27,8 +27,6 @@ const AddTodoForm: React.FC<AddTodoFormProps> = ({ onAddTodo }) => {
         alignItems="center"
         height="60vh"
       >
-        {" "}
-        {/* Center content */}
         <div>
           <h2>Add Todo</h2>
           <TextField
