@@ -2,6 +2,7 @@ import React from "react";
 import { Todo } from "../../App";
 import { Button, List, ListItem, ListItemText } from "@mui/material";
 import { Link } from "react-router-dom";
+import { UPDATE } from "../../Utils/Constant";
 
 interface ListTodoFormProps {
   todos: Todo[];
@@ -17,9 +18,6 @@ const ListTodoForm: React.FC<ListTodoFormProps> = ({ todos }) => {
           </ListItem>
         ))}
       </List>
-      <Button variant="contained" color="primary">
-        <Link to="/list/update">Update Todos</Link>
-      </Button>
     </div>
   );
 };
