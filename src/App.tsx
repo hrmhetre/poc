@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
-import AddTodoForm from "./AddTodoForm";
-import TodoList from "./TodoList";
-import ShowTodoForm from "./ShowTodoForm";
-import ListTodoForm from "./ListTodoForm";
+import AddTodoForm from "./Component/AddTodoForm/AddTodoForm";
+import TodoList from "./Component/DeleteTodo/TodoList";
+import ShowTodoForm from "./Component/Showtodo/ShowTodoForm";
+import ListTodoForm from "./Component/Listtodo/ListTodoForm";
 import axios from "axios";
+import { ADD, DELETE, SHOW_TODO, UPDATE } from "./Utils/Constant";
 
 export interface Todo {
   id: number;
@@ -76,16 +77,16 @@ const App: React.FC = () => {
 
         <Routes>
           <Route
-            path="list/add"
+            path={ADD}
             element={<AddTodoForm onAddTodo={handleAddTodo} />}
           />
-          <Route path="/list" element={<ListTodoForm todos={todos} />} />
+          <Route path={SHOW_TODO} element={<ListTodoForm todos={todos} />} />
           <Route
-            path="list/delete"
+            path={DELETE}
             element={<TodoList todos={todos} onDeleteTodo={handleDeleteTodo} />}
           />
           <Route
-            path="list/update"
+            path={UPDATE}
             element={
               <ShowTodoForm todos={todos} onUpdateTodo={handleUpdateTodo} />
             }

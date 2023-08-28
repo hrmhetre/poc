@@ -1,5 +1,5 @@
 import React from "react";
-import { Todo } from "./App";
+import { Todo } from "../../App";
 import { Button, List, ListItem, ListItemText } from "@mui/material";
 import { Link } from "react-router-dom";
 
