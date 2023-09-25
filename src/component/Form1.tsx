@@ -2,7 +2,7 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useUserContext } from "../utils/UserContext";
-import { TextField, Button, Grid } from "@mui/material";
+import { TextField, Button, Paper, Container, Stack } from "@mui/material";
 const validationSchema = Yup.object({
   username: Yup.string()
     .required("Username is required")
@@ -39,47 +39,48 @@ const UserForm: React.FC = () => {
   });
 
   return (
-    <form onSubmit={formik.handleSubmit}>
-      <Grid container spacing={2}>
-        <Grid item xs={3}>
-          <TextField
-            fullWidth
-            id="username"
-            name="username"
-            label="Enter username"
-            variant="outlined"
-            value={formik.values.username}
-            onChange={formik.handleChange}
-            error={formik.touched.username && Boolean(formik.errors.username)}
-            helperText={formik.touched.username && formik.errors.username}
-          />
-        </Grid>
-        <Grid item xs={3}>
-          <TextField
-            fullWidth
-            id="email"
-            name="email"
-            label="Enter E-mail"
-            variant="outlined"
-            value={formik.values.email}
-            onChange={formik.handleChange}
-            error={formik.touched.email && Boolean(formik.errors.email)}
-            helperText={formik.touched.email && formik.errors.email}
-          />
-        </Grid>
-        <Grid item xs={3}>
-          <Button
-            type="submit"
-            variant="contained"
-            color="primary"
-            fullWidth
-            disabled={!formik.isValid}
-          >
-            Add User
-          </Button>
-        </Grid>
-      </Grid>
-    </form>
+    <Container maxWidth="sm">
+      <Paper elevation={3} style={{ padding: "20px" }}>
+        <h2>Register details</h2>
+        <form onSubmit={formik.handleSubmit}>
+          <Stack spacing={4}>
+            <TextField
+              fullWidth
+              id="username"
+              name="username"
+              label="Enter username"
+              variant="outlined"
+              value={formik.values.username}
+              onChange={formik.handleChange}
+              error={formik.touched.username && Boolean(formik.errors.username)}
+              helperText={formik.touched.username && formik.errors.username}
+            />
+
+            <TextField
+              fullWidth
+              id="email"
+              name="email"
+              label="Enter E-mail"
+              variant="outlined"
+              value={formik.values.email}
+              onChange={formik.handleChange}
+              error={formik.touched.email && Boolean(formik.errors.email)}
+              helperText={formik.touched.email && formik.errors.email}
+            />
+
+            <Button
+              type="submit"
+              variant="contained"
+              color="primary"
+              fullWidth
+              disabled={!formik.isValid}
+            >
+              Add User
+            </Button>
+          </Stack>
+        </form>
+      </Paper>
+    </Container>
   );
 };
 

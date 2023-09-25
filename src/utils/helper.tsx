@@ -10,6 +10,6 @@ export const validationSchema = Yup.object({
   address: Yup.string().required("Address is required"),
   phoneNumber: Yup.number()
     .required("Phone Number is required")
-    .min(3, "PhoneNumber must be at least 10 number"),
+    .min(10, "PhoneNumber must be at least 10 number"),
   desigination: Yup.string().required("desigination is required"),
 });
