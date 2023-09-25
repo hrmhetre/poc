@@ -1,0 +1,8 @@
+.custom-textfield {
+  background-color: rgb(214, 247, 242);
+  border: 2px solid navy;
+  border-radius: 8px;
+  padding: 8px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
