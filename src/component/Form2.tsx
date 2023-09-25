@@ -12,7 +12,7 @@ const validationSchema = Yup.object({
   desigination: Yup.string().required("desigination is required"),
 });
 
-const ContactForm: React.FC = () => {
+const Form2: React.FC = () => {
   const { state, dispatch } = useUserContext();
   const { users, selectedUserId } = state;
 
@@ -109,4 +109,4 @@ const ContactForm: React.FC = () => {
   );
 };
 
-export default ContactForm;
+export default Form2;

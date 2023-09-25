@@ -11,7 +11,7 @@ const validationSchema = Yup.object({
     .required("Email is required")
     .email("Invalid email format"),
 });
-const UserForm: React.FC = () => {
+const Form1: React.FC = () => {
   const { dispatch } = useUserContext();
 
   const formik = useFormik({
@@ -84,4 +84,4 @@ const UserForm: React.FC = () => {
   );
 };
 
-export default UserForm;
+export default Form1;
